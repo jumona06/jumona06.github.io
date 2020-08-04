@@ -20,17 +20,60 @@
         pointer-events: none;	
         color: white;		
     }
+
+    /* div.observablehq {
+        display: flex;
+        justify-content: center;
+    } */
+
+    .column {
+        float: left;
+    }
+
+    .left {
+        width: 20%;
+    }
+
+    .right {
+        width: 80%;
+    }
+
+    /* Clear floats after the columns */
+    .row:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
 </style>
 <body>
     <h1>Proyecto de Boom Latinoamericano</h1>
-    <p>Elaborado por Laura Sánchez Márquez y Juliana Moreno Narváez.</p>
+    
+<div class="row">
+        <div class="column left">
+            <div class="row">
+                <h2>¿Qué es el boom latinoamericano?</h2>
+                <p>El boom latinoamericano es un fenómeno literario y editorial  que surgió en los años 60 y 70 del siglo XXI en América Latina. Consiste en el comienzo narrativo, en donde un grupo de autores rompieron con la literatura tradicional con obras que se difundieron por todo el mundo basadas en el realismo mágico.</p>
+            </div>
+            <div class="row">
+                <h3>Instrucciones</h3>
+                <p>A continuación se presenta el mapa sobre el boom latinoamericano de manera interactiva. Para su utilización se debe mover el cursor y seleccionar un país que están más resaltadas, de esta manera  se desplegará la información.</p>
+            </div>
+            <div class="row">
+                <p style="font-weight: bold;">Elaborado por Laura Sánchez Márquez y Juliana Moreno Narváez.</p>
+            </div>
+        </div>
+        <div class="column right">
+            <div id="observablehq-e506cba1"></div>
+        </div>
+</div>
+    
 
-    <div id="observablehq-e506cba1"></div>
     <script type="module">
     //import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-    import {Runtime, Inspector} from "/4184dcbada809678/runtime.js";
+    import {Runtime, Inspector} from "/d98ae5659b00ffb5/runtime.js";
     //import define from "https://api.observablehq.com/d/dec909f7d1dd36f6.js?v=3";
-    import define from "/4184dcbada809678/4184dcbada809678@215.js";
+    import define from "/d98ae5659b00ffb5/d98ae5659b00ffb5@608.js";
     const inspect = Inspector.into("#observablehq-e506cba1");
     (new Runtime).module(define, name => name === "chart_1" ? inspect() : undefined);
     </script>
