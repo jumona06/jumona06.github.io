@@ -1,7 +1,7 @@
-// https://observablehq.com/d/d98ae5659b00ffb5@608
+// https://observablehq.com/d/0153eac005f3e158@746
 export default function define(runtime, observer) {
   const main = runtime.module();
-  const fileAttachments = new Map([["colombia.png",new URL("./files/a5ba7bbe36a6c0564ce8f5b3ec23ae268ee3ff4700060a9845a84fa0ac2d3221abe9b020c2b69bced6635886307300755499a870ec6253faf0da35eab4c5842a",import.meta.url)],["ne_110m_admin_0_countries_lakes-2.json",new URL("./files/d272af005d0d0882f98e3b7bfb882b960b6140fdf5315e35ac1def557a1b9734a9fe63722acca2ba50cbb9ff62e04a290c3e104b708921c70e4330b29bbe3690",import.meta.url)],["Estructura Datos Boom Latinoamericano@4.csv",new URL("./files/068798e099200d9e63e45e234994c8084c9252ca0a6bf915f8a1b5dda3a6d3e6ef938686ab237fdfb3d22755c6ceea3668f344bd01f217790c1b079fa82198c0",import.meta.url)]]);
+  const fileAttachments = new Map([["colombia.png",new URL("./files/a5ba7bbe36a6c0564ce8f5b3ec23ae268ee3ff4700060a9845a84fa0ac2d3221abe9b020c2b69bced6635886307300755499a870ec6253faf0da35eab4c5842a",import.meta.url)],["ne_110m_admin_0_countries_lakes-2.json",new URL("./files/d272af005d0d0882f98e3b7bfb882b960b6140fdf5315e35ac1def557a1b9734a9fe63722acca2ba50cbb9ff62e04a290c3e104b708921c70e4330b29bbe3690",import.meta.url)],["Estructura Datos Boom Latinoamericano - Sheet1.csv",new URL("./files/849e570fb0c58503e3a528e9797b74f07c11581ab3b95100f64936d10b102df1f0d73e8e4bd0ec477a360097af9132f3786b5586285ed5dea8cfb0178f04f6d7",import.meta.url)],["Estructura Datos Boom Latinoamericano - Sheet2@5.csv",new URL("./files/63fd0c5b016ca14ed4dd6b4d08bd083d3702eb6fc0e19e9b0b2cf59167746b2d9877c7d9c1d2c57ea325accf218373b7cc5360f2adb1f537cda84baa74c84401",import.meta.url)]]);
   main.builtin("FileAttachment", runtime.fileAttachments(name => fileAttachments.get(name)));
   main.variable(observer()).define(["md"], function(md){return(
 md`# Boom Latinoamericano
@@ -163,6 +163,58 @@ html`
         .attr("xmlns:xlink","https://www.w3.org/1999/xlink")
         .attr("xlink:href","https://upload.wikimedia.org/wikipedia/commons/7/78/Flag_of_Chile.svg");
   //.attr("xlink:href",await FileAttachment("colombia.png").url());
+
+  defs.append("pattern")
+        .attr("id","URY")
+        .attr("height","100%")
+        .attr("width","100%")
+        .attr("patternContentUnits","objectBoundingBox")
+        .append("image")
+        .attr("height",1)
+        .attr("width",1)
+        .attr("preserveAspectRatio","none")
+        .attr("xmlns:xlink","https://www.w3.org/1999/xlink")
+        .attr("xlink:href","https://cdn.countryflags.com/thumbs/uruguay/flag-800.png");
+  //.attr("xlink:href",await FileAttachment("colombia.png").url());
+  
+  defs.append("pattern")
+        .attr("id","ECU")
+        .attr("height","100%")
+        .attr("width","100%")
+        .attr("patternContentUnits","objectBoundingBox")
+        .append("image")
+        .attr("height",1)
+        .attr("width",1)
+        .attr("preserveAspectRatio","none")
+        .attr("xmlns:xlink","https://www.w3.org/1999/xlink")
+        .attr("xlink:href","https://upload.wikimedia.org/wikipedia/commons/e/e8/Flag_of_Ecuador.svg");
+  //.attr("xlink:href",await FileAttachment("colombia.png").url());
+  
+  defs.append("pattern")
+        .attr("id","PRY")
+        .attr("height","100%")
+        .attr("width","100%")
+        .attr("patternContentUnits","objectBoundingBox")
+        .append("image")
+        .attr("height",1)
+        .attr("width",1)
+        .attr("preserveAspectRatio","none")
+        .attr("xmlns:xlink","https://www.w3.org/1999/xlink")
+        .attr("xlink:href","https://upload.wikimedia.org/wikipedia/commons/2/27/Flag_of_Paraguay.svg");
+  //.attr("xlink:href",await FileAttachment("colombia.png").url());
+  
+  defs.append("pattern")
+        .attr("id","HND")
+        .attr("height","100%")
+        .attr("width","100%")
+        .attr("patternContentUnits","objectBoundingBox")
+        .append("image")
+        .attr("height",1)
+        .attr("width",1)
+        .attr("preserveAspectRatio","none")
+        .attr("xmlns:xlink","https://www.w3.org/1999/xlink")
+.attr("xlink:href","https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Flag_of_Honduras_%28darker_variant%29.svg/1200px-Flag_of_Honduras_%28darker_variant%29.svg.png");
+  //.attr("xlink:href",await FileAttachment("colombia.png").url());
   
   //-----------------------
   
@@ -227,6 +279,18 @@ html`
         else if(d.properties.ISO_A3 == "CHL"){
           col = "url(#CHL)"
         }
+        else if(d.properties.ISO_A3 == "ECU"){
+          col = "url(#ECU)"
+        }
+        else if(d.properties.ISO_A3 == "HND"){
+          col = "url(#HND)"
+        }
+        else if(d.properties.ISO_A3 == "PRY"){
+          col = "url(#PRY)"
+        }
+        else if(d.properties.ISO_A3 == "URY"){
+          col = "url(#URY)"
+        }
       return col
       })
         .raise();
@@ -283,7 +347,7 @@ html`
 }
 );
   main.variable(observer("latinamerica_boom")).define("latinamerica_boom", function(){return(
-["COL","ARG","PAN","PER","MEX","CHL","BOL","BRA"]
+["ARG","COL","PAN","PER","MEX","CHL","BOL","BRA","ECU","HND","URY","PRY"]
 )});
   main.variable(observer("countries_list_colores")).define("countries_list_colores", ["countries_list","latinamerica_boom"], function(countries_list,latinamerica_boom)
 {
@@ -336,16 +400,16 @@ function (d){
   return html
 }
 )});
-  main.variable(observer("autores_description")).define("autores_description", ["data_autores"], function(data_autores){return(
+  main.variable(observer("autores_description")).define("autores_description", ["data_autores","obras"], function(data_autores,obras){return(
 function(country_){
  
   let html_ = ``
   
   let i = 0;
-  let countries = data_autores.filter(d => d.country === country_);
+  let autor_ = data_autores.filter(d => d.country === country_);
   
-  for (i in countries){
-    html_ += `<p><span style="font-weight: bold; color:${countries[i].color_id}">- ${countries[i].name}:</span> ${countries[i].description}</p>`
+  for (i in autor_){
+    html_ += `<p><span style="font-weight: bold; color:${autor_[i].color_id}">- ${autor_[i].name}:</span> ${autor_[i].description}<br>${obras(autor_[i].id)}</p>`
   }
   
   return html_
@@ -365,7 +429,7 @@ function(country_){
   //console.log(country_);
   const svg = d3.create("svg")
       .attr("width", 300)
-      .attr("height", 100);
+      .attr("height", 110);
   
   const circles = svg.selectAll("circle")
       .data(data_autores.filter(d => d.country === country_))
@@ -374,7 +438,7 @@ function(country_){
       .enter()
       .append('g')
       //.style('transform', (d, i) => `translate(${d + d*(i+0.5)}px,${100/2}px)`);
-      .style('transform', (d, i) => `translate(${60+(i)*(120)}px,${100/2}px)`);
+      .style('transform', (d, i) => `translate(${60+(i)*(120)}px,${110/2}px)`);
   
   const sequentialScale = d3.scaleSequential()
     .domain([0, 100])
@@ -433,8 +497,155 @@ function(country_){
   
 }
 )});
+  main.variable(observer()).define(["html","obras"], function(html,obras){return(
+html `${obras("garcia")}`
+)});
+  main.variable(observer()).define(["html","obras"], function(html,obras){return(
+html `${obras("cortazar")}`
+)});
+  main.variable(observer()).define(["obras"], function(obras){return(
+obras("cortazar")
+)});
+  main.variable(observer("obras")).define("obras", ["d3","data_autores_obras"], function(d3,data_autores_obras){return(
+function(autor_){
+  //console.log(country_);
+  const svg = d3.create("svg")
+      .attr("width", 500)
+      .attr("height", 200);
+  
+  const rectangles = svg.selectAll("rectangles")
+      .data(data_autores_obras.filter(d => d.id === autor_))
+  
+  const rectanglesGroups = rectangles
+      .enter()
+      .append('g')
+      //.style('transform', (d, i) => `translate(${d + d*(i+0.5)}px,${100/2}px)`);
+      .style('transform', (d, i) => `translate(${(i)*(140)}px,${10}px)`);
+
+  rectanglesGroups
+      .append("rect")
+      //.attr("x", "10px")
+      //.attr("y", "10px")
+      .attr("width", "150px")
+      .attr("height", "150px")
+      //.attr("stroke", "red")
+      //.attr("stroke", d => d.color_id)
+      //.style("stroke-width", "3px")
+      //.attr('fill', "url(#Woman_1)");
+      .attr('fill', d => "url(#"+d.id_obra+")");
+      //.attr('stroke','#blue');
+      //.style('border',"1 px solid red");
+  
+  //-----------------------------
+  
+  //Add the SVG Text Element to the svgContainer
+  var text = svg.selectAll("text")
+                         .data(data_autores_obras.filter(d => d.id === autor_))
+                         .enter()
+                         .append("text");
+                         //.style('transform', (d, i) => `translate(${80+(i)*(120)}px,${160}px)`);
+
+  //Add SVG Text Element Attributes
+  var textLabels = text
+                   .style('transform', (d, i) => `translate(${80+(i)*(140)}px,${173}px)`)                 
+                   //.attr("x", function(d) { return d.cx; })
+                   //.attr("y", function(d) { return d.cy; })
+                   //.text( function (d) { return "( " + d.cx + ", " + d.cy +" )"; })
+                   .text(d => d.obra_name_1)
+                   //.attr("font-family", "helvetica")
+                  .attr("font-weight", "bold")
+                   .attr("font-size", "13px")
+                   .attr("fill", "white")
+                   .attr("text-anchor","middle");
+  
+  //Add the SVG Text Element to the svgContainer
+  var text_1 = svg.selectAll("text_1")
+                         .data(data_autores_obras.filter(d => d.id === autor_))
+                         .enter()
+                         .append("text");
+                         //.style('transform', (d, i) => `translate(${80+(i)*(120)}px,${160}px)`);
+
+  //Add SVG Text Element Attributes
+  var textLabels_1 = text_1
+                   .style('transform', (d, i) => `translate(${80+(i)*(140)}px,${185}px)`)                 
+                   //.attr("x", function(d) { return d.cx; })
+                   //.attr("y", function(d) { return d.cy; })
+                   //.text( function (d) { return "( " + d.cx + ", " + d.cy +" )"; })
+                   .text(d => d.obra_name_2)
+                   //.attr("font-family", "helvetica")
+                   .attr("font-weight", "bold")
+                   .attr("font-size", "13px")
+                   .attr("fill", "white")
+                   .attr("text-anchor","middle");
+  
+  //Add the SVG Text Element to the svgContainer
+  var text_2 = svg.selectAll("text_2")
+                         .data(data_autores_obras.filter(d => d.id === autor_))
+                         .enter()
+                         .append("text");
+                         //.style('transform', (d, i) => `translate(${80+(i)*(120)}px,${160}px)`);
+
+  //Add SVG Text Element Attributes
+  var textLabels_2 = text_2
+                   .style('transform', (d, i) => `translate(${80+(i)*(140)}px,${197}px)`)                 
+                   //.attr("x", function(d) { return d.cx; })
+                   //.attr("y", function(d) { return d.cy; })
+                   //.text( function (d) { return "( " + d.cx + ", " + d.cy +" )"; })
+                   .text(d => `(${d.obra_year})`)
+                   //.attr("font-family", "helvetica")
+                   .attr("font-weight", "bold")
+                   .attr("font-size", "13px")
+                   .attr("fill", "white")
+                   .attr("text-anchor","middle");
+  //https://bl.ocks.org/emmasaunders/0016ee0a2cab25a643ee9bd4855d3464
+  
+  //-----------------------------
+  
+  const defs = svg.append("defs");
+  
+  //console.log(data_autores.filter(d => d.country === country_));
+  
+  let i = 0;
+  let obras_ = data_autores_obras.filter(d => d.id === autor_);
+  
+  for (i in obras_){
+   //console.log(countries[i]);
+    defs.append("pattern")
+        //.data(data_autores.filter(d => d.country === country_))
+        //.attr("id","Woman_1")
+        .attr("id",obras_[i].id_obra)
+        .attr("height","100%")
+        .attr("width","100%")
+        .attr("patternContentUnits","objectBoundingBox")
+        .append("image")
+        .attr("height",1)
+        .attr("width",1)
+        //.attr("preserveAspectRatio","none")
+        .attr("xmlns:xlink","https://www.w3.org/1999/xlink")
+        //.attr("xlink:href","https://i.pinimg.com/originals/c9/b5/79/c9b579b70725ebd3407f84bca5119d03.jpg");
+        .attr("xlink:href",obras_[i].obra_link);
+        //.attr("xlink:href",await FileAttachment("colombia.png").url());
+  }
+  
+  /*circleGroups
+      .append('text')
+      .style('font-size', '12px')
+      .style('transform', () => `translate(-7px, 5px)`)
+      .text(d => d);*/
+  
+  return svg.node().outerHTML;
+  
+  // Attach element to DOM.
+ //d3.select("#autores")
+ //  .append(() => svg.node());
+  
+}
+)});
   main.variable(observer("data_autores")).define("data_autores", ["d3","FileAttachment"], async function(d3,FileAttachment){return(
-d3.csvParse(await FileAttachment("Estructura Datos Boom Latinoamericano@4.csv").text())
+d3.csvParse(await FileAttachment("Estructura Datos Boom Latinoamericano - Sheet1.csv").text())
+)});
+  main.variable(observer("data_autores_obras")).define("data_autores_obras", ["d3","FileAttachment"], async function(d3,FileAttachment){return(
+d3.csvParse(await FileAttachment("Estructura Datos Boom Latinoamericano - Sheet2@5.csv").text())
 )});
   main.variable(observer("topojson")).define("topojson", ["require"], function(require){return(
 require("topojson-client@3")

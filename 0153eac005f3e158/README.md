@@ -1,6 +1,6 @@
 # Boom Latinoamericano
 
-https://observablehq.com/d/d98ae5659b00ffb5@608
+https://observablehq.com/d/0153eac005f3e158@746
 
 View this notebook in your browser by running a web server in this folder. For
 example:
@@ -14,14 +14,14 @@ import this module directly into your application. To npm install:
 
 ~~~sh
 npm install @observablehq/runtime@4
-npm install https://api.observablehq.com/d/d98ae5659b00ffb5.tgz?v=3
+npm install https://api.observablehq.com/d/0153eac005f3e158.tgz?v=3
 ~~~
 
 Then, import your notebook and the runtime as:
 
 ~~~js
 import {Runtime, Inspector} from "@observablehq/runtime";
-import define from "d98ae5659b00ffb5";
+import define from "0153eac005f3e158";
 ~~~
 
 To log the value of the cell named “foo”:
