@@ -21,6 +21,16 @@ python3 -m http.server 8000
 
 Luego abre `http://localhost:8000/`.
 
+## QA visual
+
+El repositorio incluye una prueba de Playwright en Python para validar que carguen todos los retratos de autores y todas las cubiertas de libros renderizadas por la experiencia editorial.
+
+```sh
+uv pip install playwright
+.venv/bin/python -m playwright install chromium
+BASE_URL=http://127.0.0.1:8000 .venv/bin/python tests/editorial_qa.py
+```
+
 ## Publicación
 
 El repositorio está organizado para GitHub Pages desde la raíz del proyecto. Mantén `index.html` en la raíz y usa rutas relativas para que la página funcione tanto localmente como en `https://jumona06.github.io/`.
