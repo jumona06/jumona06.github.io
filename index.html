@@ -1,86 +1,134 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Boom Latinoamericano</title>
+    <style>
+        :root {
+            color: #1f2933;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            line-height: 1.5;
+            background: #f7f7f4;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        main {
+            width: min(1440px, 100%);
+            margin: 0 auto;
+            padding: 32px;
+        }
+
+        h1,
+        h2,
+        h3,
+        p {
+            margin-top: 0;
+        }
+
+        h1 {
+            margin-bottom: 24px;
+            font-size: clamp(2rem, 4vw, 4rem);
+            line-height: 1.05;
+        }
+
+        h2,
+        h3 {
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+            gap: 32px;
+            align-items: start;
+        }
+
+        .intro {
+            max-width: 42rem;
+        }
+
+        .credits {
+            font-weight: 700;
+        }
+
+        .map {
+            min-width: 0;
+            overflow-x: auto;
+        }
+
+        .map .observablehq {
+            min-width: 720px;
+        }
+
+        div.tooltip {
+            position: absolute;
+            max-width: min(500px, calc(100vw - 32px));
+            padding: 0.5em;
+            font-size: 0.875rem;
+            background: rgb(77, 73, 73);
+            border: 0;
+            border-radius: 0.5em;
+            pointer-events: none;
+            color: white;
+        }
+
+        div.tooltip img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 900px) {
+            main {
+                padding: 24px 16px;
+            }
+
+            .layout {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+        }
+    </style>
 </head>
-<style>
-
-    div.tooltip {	
-        position: absolute;		
-        max-width:  500px;					
-        padding: 0.5em;				
-        font: 0.4em;		
-        background: rgb(77, 73, 73);	
-        border: 0px;		
-        border-radius: 0.5em;			
-        pointer-events: none;	
-        color: white;		
-    }
-
-    /* div.observablehq {
-        display: flex;
-        justify-content: center;
-    } */
-
-    .column {
-        float: left;
-    }
-
-    .left {
-        width: 20%;
-    }
-
-    .right {
-        width: 80%;
-    }
-
-    /* Clear floats after the columns */
-    .row:after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    h1, h2, h3, p{ 
-        font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-        font-style: normal; 
-        font-variant: normal; 
-    }
-
-</style>
 <body>
-    <h1>Proyecto de Boom Latinoamericano</h1>
-    
-<div class="row">
-        <div class="column left">
-            <div class="row">
-                <h2>¿Qué es el boom latinoamericano?</h2>
-                <p>El boom latinoamericano es un fenómeno literario y editorial  que surgió en los años 60 y 70 del siglo XXI en América Latina. Consiste en el comienzo narrativo, en donde un grupo de autores rompieron con la literatura tradicional con obras que se difundieron por todo el mundo basadas en el realismo mágico.</p>
-            </div>
-            <div class="row">
+    <main>
+        <h1>Proyecto de Boom Latinoamericano</h1>
+
+        <div class="layout">
+            <section class="intro" aria-labelledby="about-title">
+                <h2 id="about-title">¿Qué es el boom latinoamericano?</h2>
+                <p>El boom latinoamericano es un fenómeno literario y editorial que surgió en los años 60 y 70 del siglo XX en América Latina. Consiste en el comienzo narrativo en el que un grupo de autores rompió con la literatura tradicional mediante obras que se difundieron por todo el mundo y se relacionaron con el realismo mágico.</p>
+
                 <h3>Instrucciones</h3>
-                <p>A continuación se presenta el mapa sobre el boom latinoamericano de manera interactiva. Para su utilización se debe mover el cursor y seleccionar un país que están más resaltadas, de esta manera  se desplegará la información.</p>
-            </div>
-            <div class="row">
-                <p style="font-weight: bold;">Elaborado por Laura Sánchez Márquez y Juliana Moreno Narváez.</p>
-            </div>
+                <p>A continuación se presenta un mapa interactivo sobre el boom latinoamericano. Para utilizarlo, mueve el cursor y selecciona los países resaltados para desplegar la información.</p>
+
+                <p class="credits">Elaborado por Laura Sánchez Márquez y Juliana Moreno Narváez.</p>
+            </section>
+
+            <section class="map" aria-label="Mapa interactivo sobre el boom latinoamericano">
+                <div id="observablehq-e506cba1"></div>
+            </section>
         </div>
-        <div class="column right">
-            <div id="observablehq-e506cba1"></div>
-        </div>
-</div>
-    
+    </main>
 
     <script type="module">
-    //import {Runtime, Inspector} from "https://cdn.jsdelivr.net/npm/@observablehq/runtime@4/dist/runtime.js";
-    import {Runtime, Inspector} from "/0153eac005f3e158/runtime.js";
-    //import define from "https://api.observablehq.com/d/dec909f7d1dd36f6.js?v=3";
-    import define from "/0153eac005f3e158/0153eac005f3e158@746.js";
-    const inspect = Inspector.into("#observablehq-e506cba1");
-    (new Runtime).module(define, name => name === "chart_1" ? inspect() : undefined);
-    </script>
+        import {Runtime, Inspector} from "./0153eac005f3e158/runtime.js";
+        import define from "./0153eac005f3e158/0153eac005f3e158@746.js";
 
+        const inspect = Inspector.into("#observablehq-e506cba1");
+        new Runtime().module(define, name => name === "chart_1" ? inspect() : undefined);
+    </script>
 </body>
 </html>

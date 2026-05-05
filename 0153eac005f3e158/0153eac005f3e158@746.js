@@ -17,7 +17,7 @@ html`
           position: absolute;		
           max-width:  500px;					
           padding: 0.5em;				
-          font: 0.4em;		
+          font-size: 0.875rem;		
           background: rgb(77, 73, 73);	
           border: 0px;		
           border-radius: 0.5em;			
